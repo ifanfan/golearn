@@ -71,8 +71,8 @@ func (p *MiddlewareServe) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	next()
 }
 
-// Middleware push MiddlewareFunc
-func (p *MiddlewareServe) Middleware(funcs ...MiddlewareFunc) {
+// Use push MiddlewareFunc
+func (p *MiddlewareServe) Use(funcs ...MiddlewareFunc) {
 	for _, f := range funcs {
 		p.middlewares = append(p.middlewares, f)
 	}

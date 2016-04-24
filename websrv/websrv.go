@@ -22,7 +22,7 @@ func main() {
 	route.Handle("/panic", http.HandlerFunc(panicHandle))
 
 	s.Handler = route
-	s.Middleware(LogRequest, ErrCatch)
+	s.Use(LogRequest, ErrCatch)
 	// start server
 	fmt.Println(http.ListenAndServe(":3000", s))
 }
